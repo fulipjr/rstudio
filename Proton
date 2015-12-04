@@ -1,0 +1,16 @@
+#How to solve the game Proton
+install.packages('Proton')
+library("Proton")
+#the first problem wants us to find the name John Insecure within the employees table
+#Let us create a new varaible that contains the name John, and then match it with the employees table
+x <- employees
+y <- John
+xy <- match(x$name, y)
+#now we have an int list with a bunch of NA and a few "1s" where the match was true
+na.omit(as.data.frame(xy))
+#row 217 and 432 contain the name John
+View(x)
+#scroll to rom 217 to find John's login.
+proton(action = "login", login="johnins")
+
+#Now we have to guess the password. My first hunch is to loop all of the possible passwords until the login is correct. 
